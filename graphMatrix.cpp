@@ -25,7 +25,16 @@ int main()
   //This program should still work even if we change NUM to 100 and change the matrix.
 
   //       row column  
-  int m[NUM][NUM] = {{0, 1, 1, 0, 1, 0, 0, 0}, { }  };  //Mij where i is row and j is column
+  int m[NUM][NUM] = {
+                      {0, 1, 1, 0, 1, 0, 0, 0}, // A
+                      {1, 0, 1, 0, 0, 1, 1, 0}, // B
+                      {1, 1, 0, 0, 1, 1, 0, 0}, // C
+                      {0, 0, 0, 0, 1, 0, 0, 0}, // D
+                      {1, 0, 1, 1, 0, 1, 0, 1}, // E
+                      {0, 1, 1, 0, 1, 0, 0, 0}, // F
+                      {0, 1, 0, 0, 0, 0, 0, 0}, // G
+                      {0, 0, 0, 0, 1, 0, 0, 0}, // H
+                    };  //Mij where i is row and j is column
   //A(0), B(1), ....
 
   //check if A and F are friends
