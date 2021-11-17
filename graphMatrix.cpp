@@ -14,10 +14,18 @@ Any difficulties?:
 using namespace std;
 
 const int NUM = 8;
+const int MAX = NUM;
 
-void printArray()
+void printArray(char array[])
 {
   //This would come in handy
+  int numElements = sizeof(array) / sizeof(array[0]);
+  for (int i = 0; i < numElements; i++)
+  {
+    if (array[i] >= 'A' && array[i] <= 'H')
+      cout << array[i] << " ";
+  }
+  cout << endl;
 }
 
 int main()
@@ -25,6 +33,7 @@ int main()
   //This program should still work even if we change NUM to 100 and change the matrix.
 
   //       row column  
+  // m[i][j]
   int m[NUM][NUM] = {
                       {0, 1, 1, 0, 1, 0, 0, 0}, // A
                       {1, 0, 1, 0, 0, 1, 1, 0}, // B
@@ -38,16 +47,24 @@ int main()
   //A(0), B(1), ....
 
   //check if A and F are friends
-    cout << "Yes";
-    cout << "No";
+  (m[0][5] == 1) ? cout << "Yes\n" : cout << "No\n";
+
 
   //Show all friends of A
   char friends[MAX]; //store all A's direct friends
-
+  int index;
+  for (int col = 0; col < NUM; col++)
+  {
+    if (m[0][col] == 1)
+    {
+      friends[index++] = col + 'A';
+    }
+  }
+  printArray(friends);
   //Aswer: B, C, E
 
   //refer A A's friends' direct friends 
-  char refer[MAX]; //store referred friends for A
+  //char refer[MAX]; //store referred friends for A
   //I made one more function to keep the loop small  
 
   //Answer: D, F, G, H  (don't repeat the same person. Order doesn't matter)
